@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
-using gTarrGames.Shared.Orchestrators.Interfaces;
+using gTarrGames.Domain;
 using gTarrGames.Shared.ViewModels;
 
 namespace gTarrGames.Shared.Orchestrators
 {
-    public class MemberOrchestrator : IMemberOrchestrator
+    public class MemberOrchestrator
     {
+        private readonly GamesContext _gamesContext;
+
+        public MemberOrchestrator()
+        {
+            _gamesContext = new GamesContext();
+        }
+
         public List<ProjectMemberViewModel> GetProjectMembers()
         {
             var members = new List<ProjectMemberViewModel>

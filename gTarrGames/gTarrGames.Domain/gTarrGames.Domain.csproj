@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{175C5969-2088-4EE3-8FB4-5F56DFD4BC57}</ProjectGuid>
+    <ProjectGuid>{731CFE66-417C-4E41-B7CC-C8A43040124A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>gTarrGames.Domain</RootNamespace>
@@ -51,9 +51,9 @@
     <Compile Include="Entities\HighScore.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="GamesContext.cs" />
-    <Compile Include="Migrations\201902131009129_InitialDatabaseCreation.cs" />
-    <Compile Include="Migrations\201902131009129_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>201902131009129_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\201902190052380_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\201902190052380_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>201902190052380_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,8 +63,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902131009129_InitialDatabaseCreation.resx">
-      <DependentUpon>201902131009129_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902190052380_InitialDatabaseCreation.resx">
+      <DependentUpon>201902190052380_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

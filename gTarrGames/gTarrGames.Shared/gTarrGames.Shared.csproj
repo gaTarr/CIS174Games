@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C551FF6D-DFCA-4AAB-A59F-967E39B98F7E}</ProjectGuid>
+    <ProjectGuid>{7FAED868-94F8-4B37-84D1-7B11FE8886D7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>gTarrGames.Shared</RootNamespace>
@@ -49,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Orchestrators\HighScoreOrchestrator.cs" />
-    <Compile Include="Orchestrators\Interfaces\IMemberOrchestrator.cs" />
     <Compile Include="Orchestrators\MemberOrchestrator.cs" />
     <Compile Include="Orchestrators\PersonOrchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,17 +57,18 @@
     <Compile Include="ViewModels\ProjectMemberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\gTarrGames.Domain\gTarrGames.Domain.csproj">
-      <Project>{175c5969-2088-4ee3-8fb4-5f56dfd4bc57}</Project>
+      <Project>{731cfe66-417c-4e41-b7cc-c8a43040124a}</Project>
       <Name>gTarrGames.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="Orchestrators\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
