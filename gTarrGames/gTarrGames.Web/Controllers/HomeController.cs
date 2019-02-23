@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace gTarrGames.Web.Controllers
 {
@@ -15,13 +11,14 @@ namespace gTarrGames.Web.Controllers
 
         public ActionResult About()
         {
+            ViewBag.Message = "This site was created by a team of one.";
 
             return View();
         }
 
-        public ActionResult HighScore()
+        public ActionResult Contact()
         {
-            ViewBag.Message = "Your High Scores page.";
+            ViewBag.Message = "Your contact page.";
 
             return View();
         }

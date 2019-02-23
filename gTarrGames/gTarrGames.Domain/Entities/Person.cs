@@ -12,6 +12,5 @@ namespace gTarrGames.Domain.Entities
         public string LastName { get; set; }
         public DateTime DateCreated { get; set; }
         public string Email { get; set; }
-
     }
 }

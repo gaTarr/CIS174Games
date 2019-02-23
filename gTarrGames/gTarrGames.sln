@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Web", "gTarrGames.Web\gTarrGames.Web.csproj", "{83A1E9FC-F389-4FB3-AD59-E2D6316A70A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Web", "gTarrGames.Web\gTarrGames.Web.csproj", "{3214E1AA-5E64-42AE-BCB1-C436694810BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Domain", "gTarrGames.Domain\gTarrGames.Domain.csproj", "{731CFE66-417C-4E41-B7CC-C8A43040124A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Domain", "gTarrGames.Domain\gTarrGames.Domain.csproj", "{015B0C38-7D70-4919-B73D-60424E0CBD4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Shared", "gTarrGames.Shared\gTarrGames.Shared.csproj", "{7FAED868-94F8-4B37-84D1-7B11FE8886D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Shared", "gTarrGames.Shared\gTarrGames.Shared.csproj", "{D36B8538-A6DA-433F-84D5-162D331E29C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{83A1E9FC-F389-4FB3-AD59-E2D6316A70A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83A1E9FC-F389-4FB3-AD59-E2D6316A70A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83A1E9FC-F389-4FB3-AD59-E2D6316A70A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83A1E9FC-F389-4FB3-AD59-E2D6316A70A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{731CFE66-417C-4E41-B7CC-C8A43040124A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{731CFE66-417C-4E41-B7CC-C8A43040124A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{731CFE66-417C-4E41-B7CC-C8A43040124A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{731CFE66-417C-4E41-B7CC-C8A43040124A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FAED868-94F8-4B37-84D1-7B11FE8886D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FAED868-94F8-4B37-84D1-7B11FE8886D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FAED868-94F8-4B37-84D1-7B11FE8886D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FAED868-94F8-4B37-84D1-7B11FE8886D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3214E1AA-5E64-42AE-BCB1-C436694810BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3214E1AA-5E64-42AE-BCB1-C436694810BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3214E1AA-5E64-42AE-BCB1-C436694810BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3214E1AA-5E64-42AE-BCB1-C436694810BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{015B0C38-7D70-4919-B73D-60424E0CBD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015B0C38-7D70-4919-B73D-60424E0CBD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015B0C38-7D70-4919-B73D-60424E0CBD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015B0C38-7D70-4919-B73D-60424E0CBD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {07BF8690-AB97-45E4-8D61-97D55D98B502}
+		SolutionGuid = {46223A26-7178-4A9B-ADDA-6C5AC5BC4956}
 	EndGlobalSection
 EndGlobal

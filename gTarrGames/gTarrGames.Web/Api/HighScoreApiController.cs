@@ -22,5 +22,6 @@ namespace gTarrGames.Web.Api
 
             return highScores;
         }
+
     }
 }

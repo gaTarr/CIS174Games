@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7FAED868-94F8-4B37-84D1-7B11FE8886D7}</ProjectGuid>
+    <ProjectGuid>{D36B8538-A6DA-433F-84D5-162D331E29C7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>gTarrGames.Shared</RootNamespace>
@@ -48,27 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\GenderEnum.cs" />
     <Compile Include="Orchestrators\HighScoreOrchestrator.cs" />
-    <Compile Include="Orchestrators\MemberOrchestrator.cs" />
-    <Compile Include="Orchestrators\PersonOrchestrator.cs" />
+    <Compile Include="Orchestrators\Interfaces\IHighScoreOrchestrator.cs" />
+    <Compile Include="Orchestrators\ProjectMemberOrchestrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HighScoreViewModel.cs" />
-    <Compile Include="ViewModels\PersonViewModel.cs" />
-    <Compile Include="ViewModels\ProjectMemberViewModel.cs" />
+    <Compile Include="ViewModels\ProjectMembersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\gTarrGames.Domain\gTarrGames.Domain.csproj">
-      <Project>{731cfe66-417c-4e41-b7cc-c8a43040124a}</Project>
+      <Project>{015b0c38-7d70-4919-b73d-60424e0cbd4d}</Project>
       <Name>gTarrGames.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Orchestrators\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

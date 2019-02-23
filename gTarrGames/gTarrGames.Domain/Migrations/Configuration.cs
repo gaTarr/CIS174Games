@@ -1,6 +1,7 @@
+using gTarrGames.Domain.Entities;
+
 namespace gTarrGames.Domain.Migrations
 {
-    using gTarrGames.Domain.Entities;
     using System;
     using System.Data.Entity.Migrations;
 

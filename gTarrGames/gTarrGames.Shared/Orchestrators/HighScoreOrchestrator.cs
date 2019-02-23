@@ -1,10 +1,7 @@
 ﻿using gTarrGames.Domain;
 using gTarrGames.Shared.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace gTarrGames.Shared.Orchestrators
 {

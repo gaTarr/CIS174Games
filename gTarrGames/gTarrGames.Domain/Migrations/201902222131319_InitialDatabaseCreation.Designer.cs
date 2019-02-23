@@ -13,7 +13,7 @@ namespace gTarrGames.Domain.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201902190052380_InitialDatabaseCreation"; }
+            get { return "201902222131319_InitialDatabaseCreation"; }
         }
         
         string IMigrationMetadata.Source

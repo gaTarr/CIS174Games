@@ -6,7 +6,6 @@ namespace gTarrGames.Domain
     public class GamesContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
-
         public DbSet<HighScore> HighScores { get; set; }
     }
 }

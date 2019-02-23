@@ -5,22 +5,22 @@ using System.Web.Http;
 
 namespace gTarrGames.Web.Api
 {
-    [Route("api/v1/members")]
+    [Route("api/v1/projectMembers")]
     public class ProjectMemberApiController : ApiController
     {
-        private readonly MemberOrchestrator _memberOrchestrator;
+        private readonly ProjectMemberOrchestrator _projectMemberOrchestrator;
 
         public ProjectMemberApiController()
         {
-            _memberOrchestrator = new MemberOrchestrator();
+            _projectMemberOrchestrator = new ProjectMemberOrchestrator();
         }
 
         [HttpGet]
-        public List<ProjectMemberViewModel> GetProjectMembers()
+        public List<ProjectMembersViewModel> GetProjectMembers()
         {
-            var members = _memberOrchestrator.GetProjectMembers();
+            var projMembers = _projectMemberOrchestrator.GetProjectMembers();
 
-            return members;
+            return projMembers;
         }
     }
 }

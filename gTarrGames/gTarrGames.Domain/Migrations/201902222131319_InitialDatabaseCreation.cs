@@ -13,7 +13,7 @@ namespace gTarrGames.Domain.Migrations
                     {
                         HighScoreId = c.Guid(nullable: false),
                         PersonId = c.Guid(nullable: false),
-                        Score = c.Single(nullable: false),
+                        Score = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DateAttained = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.HighScoreId);
