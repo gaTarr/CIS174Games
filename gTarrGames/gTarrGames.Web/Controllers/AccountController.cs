@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using gTarrGames.Web.Models;
+using gTarrGames.Shared.Orchestrators;
+using gTarrGames.Shared.ViewModels;
 
 namespace gTarrGames.Web.Controllers
 {
@@ -17,6 +19,7 @@ namespace gTarrGames.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private PersonOrchestrator _personOrchestrator = new PersonOrchestrator();
 
         public AccountController()
         {
@@ -79,6 +82,8 @@ namespace gTarrGames.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    //Store email in Session
+                    Session["LoginEmail"] = model.Email;
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -156,7 +161,15 @@ namespace gTarrGames.Web.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    //At this point create Person Object
+                    await _personOrchestrator.CreatePerson(new PersonViewModel
+                    {
+                        Email = model.Email
+                    });
+                    //and Store email in sesson
+                    Session["LoginEmail"] = model.Email;
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
