@@ -1,54 +1,114 @@
-﻿@model gTarrGames.Web.Models.UpdatePersonModel
+﻿@model gTarrGames.Shared.ViewModels.PersonViewModel
 
-<script src="~/Scripts/DMACC.person.js" type="text/javascript"></script>
 
 <h2>Create Profile</h2>
 
 <div id="successMessage" class="hidden alert alert-success">Successfully Updated!</div>
 <div id="errorMessage" class="hidden alert alert-danger">Error Occurred!</div>
 
-<input id="personId" type="hidden"/>
-<div class="col-md-12">
-    <div class="col-md-6">
-        <label>First Name:</label>
+<body>
+    <PersonViewModel>
+    <input id="personId" type="hidden" />
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label>First Name:</label>
+        </div>
+        <div class="col-md-6">
+            <input id="firstName" type="text" class="form-control" value="@Model.FirstName" />
+        </div>
     </div>
-    <div class="col-md-6">
-        <input id="firstName" type="text" class="form-control"/>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label>Last Name:</label>
+        </div>
+        <div class="col-md-6">
+            <input id="lastName" type="text" class="form-control" />
+        </div>
     </div>
-</div>
-<div class="col-md-12">
-    <div class="col-md-6">
-        <label>Last Name:</label>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label>Gender:</label>
+        </div>
+        <div class="col-md-6">
+            <input id="gender" type="text" class="form-control" />
+        </div>
     </div>
-    <div class="col-md-6">
-        <input id="lastName" type="text" class="form-control" />
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label>Email:</label>
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Email)
+        </div>
     </div>
-</div>
-<div class="col-md-12">
-    <div class="col-md-6">
-        <label>Gender:</label>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label>Phone Number:</label>
+        </div>
+        <div class="col-md-6">
+            <input id="phoneNumber" type="text" class="form-control" />
+        </div>
     </div>
-    <div class="col-md-6">
-        <input id="gender" type="text" class="form-control" />
-    </div>
-</div>
-<div class="col-md-12">
-    <div class="col-md-6">
-        <label>Email:</label>
-    </div>
-    <div class="col-md-6">
-        <input id="email" type="text" class="form-control" value=""/>
-    </div>
-</div>
-<div class="col-md-12">
-    <div class="col-md-6">
-        <label>Phone Number:</label>
-    </div>
-    <div class="col-md-6">
-        <input id="phoneNumber" type="text" class="form-control" />
-    </div>
-</div>
 
-<div class="col-md-12">
-    <button class="btn" onclick="updatePerson()">Save</button>
-</div>
+    <div class="col-md-12">
+        <button class="btn" onclick="updatePerson()">Save</button>
+    </div>
+    </PersonViewModel>
+</body>
+
+@*@model gTarrGames.Web.Models.UpdatePersonModel
+
+    <script src="~/Scripts/DMACC.person.js" type="text/javascript"></script>
+
+    <h2>Create Profile</h2>
+
+    <div id="successMessage" class="hidden alert alert-success">Successfully Updated!</div>
+    <div id="errorMessage" class="hidden alert alert-danger">Error Occurred!</div>
+
+        <body>
+            <input id="personId" type="hidden"/>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label>First Name:</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="firstName" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label>Last Name:</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="lastName" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label>Gender:</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="gender" type="text" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label>Email:</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="email" type="text" class="form-control" value=""/>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <label>Phone Number:</label>
+                </div>
+                <div class="col-md-6">
+                    <input id="phoneNumber" type="text" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <button class="btn" onclick="updatePerson()">Save</button>
+            </div>
+        </body>*@

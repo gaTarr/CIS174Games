@@ -1,9 +1,41 @@
 ﻿@model gTarrGames.Web.Models.HighScoresModel
+<!DOCTYPE html>
 
-
-<div>
-    @*Here, we need to display each of the high scores in the high scores table.
-    This can be accomplished by getting the highScores object passed to the View() in the 
-    HighScoresController.*@
-</div>
-
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>High Scores</title>
+</head>
+    <body>
+        <div class="container">
+            <h2>High Scores</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var score in Model.HighScores)
+                        {
+                        <tr>
+                            <td>
+                                @score.PersonId
+                            </td>
+                            <td>
+                                @score.Score
+                            </td>
+                            <td>
+                                @score.DateAttained
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

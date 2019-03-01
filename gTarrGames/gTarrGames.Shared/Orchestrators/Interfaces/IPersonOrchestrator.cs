@@ -13,5 +13,6 @@ namespace gTarrGames.Shared.Orchestrators.Interfaces
         Task<bool> UpdatePerson(PersonViewModel person);
         //Task<bool> Search(PersonViewModel person);
         Task<PersonViewModel> SearchPersonAsync(string searchString);
+        List<PersonViewModel> GetAllPersons();
     }
 }

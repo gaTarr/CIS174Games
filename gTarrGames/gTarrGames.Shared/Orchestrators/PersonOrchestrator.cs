@@ -48,6 +48,30 @@ namespace gTarrGames.Shared.Orchestrators
             return persons;
         }
 
+        //To be called on page load
+        public PersonViewModel SearchPerson(string searchString)
+        {
+            var person = _gamesContext.Persons.Where(x => x.Email.StartsWith(searchString)).FirstOrDefault();
+
+            if (person == null)
+            {
+                return new PersonViewModel();
+            }
+
+            var viewModel = new PersonViewModel()
+            {
+                PersonId = person.PersonId,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Gender = person.Gender,
+                Email = person.Email,
+                PhoneNumber = person.PhoneNumber
+            };
+
+            return viewModel;
+        }
+
+
         //Search for Person by Email - currently unused
         public async Task<PersonViewModel> SearchPersonAsync(string searchString)
         {
