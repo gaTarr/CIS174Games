@@ -165,6 +165,7 @@ namespace gTarrGames.Web.Controllers
                     //At this point create Person Object
                     await _personOrchestrator.CreatePerson(new PersonViewModel
                     {
+                        PersonId = Guid.NewGuid(),
                         Email = model.Email
                     });
                     //and Store email in sesson

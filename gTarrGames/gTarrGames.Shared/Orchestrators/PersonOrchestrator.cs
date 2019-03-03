@@ -2,6 +2,7 @@
 using gTarrGames.Domain.Entities;
 using gTarrGames.Shared.Orchestrators.Interfaces;
 using gTarrGames.Shared.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -27,7 +28,8 @@ namespace gTarrGames.Shared.Orchestrators
                 LastName = null,
                 Gender = null,
                 Email = person.Email,
-                PhoneNumber = null
+                PhoneNumber = null,
+                DateCreated = DateTime.Now
             });
 
             return await _gamesContext.SaveChangesAsync();
@@ -49,16 +51,16 @@ namespace gTarrGames.Shared.Orchestrators
         }
 
         //To be called on page load
-        public PersonViewModel SearchPerson(string searchString)
+        public async Task<PersonViewModel> SearchPerson(string searchString)
         {
-            var person = _gamesContext.Persons.Where(x => x.Email.StartsWith(searchString)).FirstOrDefault();
+            var person = await _gamesContext.Persons.Where(x => x.Email.StartsWith(searchString)).FirstOrDefaultAsync();
 
             if (person == null)
             {
                 return new PersonViewModel();
             }
 
-            var viewModel = new PersonViewModel()
+            var viewModel = new PersonViewModel
             {
                 PersonId = person.PersonId,
                 FirstName = person.FirstName,

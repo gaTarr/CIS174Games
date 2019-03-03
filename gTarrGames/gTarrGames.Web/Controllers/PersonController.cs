@@ -16,15 +16,16 @@ namespace gTarrGames.Web.Controllers
             return View();
         }
 
-        public ActionResult Update()
+        public async Task<ActionResult> Update()
         {
             string sesEmail = (string)Session["loginEmail"];
             
-            var personViewModel = _personOrchestrator.SearchPerson(sesEmail);
+            var personViewModel = await _personOrchestrator.SearchPerson(sesEmail);
         
             return View(personViewModel);
         }
 
+        //Currently Unused
         public async void CreatePerson(CreatePersonModel person)
         {
              await _personOrchestrator.CreatePerson(new PersonViewModel

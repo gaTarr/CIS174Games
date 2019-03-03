@@ -1,5 +1,7 @@
 ﻿@model gTarrGames.Shared.ViewModels.PersonViewModel
 
+<script src="~/Scripts/DMACC.person.js" type="text/javascript"></script>
+
 
 <h2>Create Profile</h2>
 
@@ -22,7 +24,7 @@
             <label>Last Name:</label>
         </div>
         <div class="col-md-6">
-            <input id="lastName" type="text" class="form-control" />
+            <input id="lastName" type="text" class="form-control" value="@Model.LastName"/>
         </div>
     </div>
     <div class="col-md-12">
@@ -30,7 +32,7 @@
             <label>Gender:</label>
         </div>
         <div class="col-md-6">
-            <input id="gender" type="text" class="form-control" />
+            <input id="gender" type="text" class="form-control" value="@Model.Gender"/>
         </div>
     </div>
     <div class="col-md-12">
@@ -38,7 +40,7 @@
             <label>Email:</label>
         </div>
         <div class="col-md-6">
-            @Html.TextBoxFor(m => m.Email)
+            <input id="email" type="text" class="form-control" value="@Model.Email" />
         </div>
     </div>
     <div class="col-md-12">
@@ -46,7 +48,7 @@
             <label>Phone Number:</label>
         </div>
         <div class="col-md-6">
-            <input id="phoneNumber" type="text" class="form-control" />
+            <input id="phoneNumber" type="text" class="form-control" value="@Model.PhoneNumber"/>
         </div>
     </div>
 
