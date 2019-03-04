@@ -18,7 +18,7 @@ namespace gTarrGames.Web.Controllers
 
         public async Task<ActionResult> Update()
         {
-            string sesEmail = (string)Session["loginEmail"];
+            var sesEmail = (string) Session["LoginEmail"];
             
             var personViewModel = await _personOrchestrator.SearchPerson(sesEmail);
         
@@ -43,6 +43,7 @@ namespace gTarrGames.Web.Controllers
 
             var result = await _personOrchestrator.UpdatePerson(new PersonViewModel
             {
+                PersonId = person.PersonId,
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 Gender = person.Gender,
@@ -53,6 +54,7 @@ namespace gTarrGames.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        //For search Function - currently unused
         public async void Search(string searchString)
         {
             var viewModel = await _personOrchestrator.SearchPersonAsync(searchString);

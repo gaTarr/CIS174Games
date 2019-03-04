@@ -12,7 +12,7 @@
         data: {
             PersonId: personId,
             FirstName: firstName,
-            Lastname: lastName,
+            LastName: lastName,
             Gender: gender,
             Email: email,
             PhoneNumber: phoneNumber
