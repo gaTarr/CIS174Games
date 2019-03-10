@@ -19,9 +19,13 @@
         }
     }).done(function (data) {
         if (data) {
+            //$("#errorMessage").removeClass("visible")
+            //    .addClass("hidden");
             $("#successMessage").removeClass("hidden")
                 .addClass("visible");
         } else {
+            //$("#successMessage").removeClass("visible")
+            //    .addClass("hidden");
             $("#errorMessage").removeClass("hidden")
                 .addClass("visible");
         }

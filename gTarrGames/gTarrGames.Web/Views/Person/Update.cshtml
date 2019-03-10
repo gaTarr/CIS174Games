@@ -10,51 +10,51 @@
 
 <body>
     <PersonViewModel>
-    <input id="personId" type="hidden" />
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <label>First Name:</label>
+        <input id="personId" type="hidden" value="@Model.PersonId"/>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>First Name:</label>
+            </div>
+            <div class="col-md-6">
+                <input id="firstName" type="text" class="form-control" value="@Model.FirstName" />
+            </div>
         </div>
-        <div class="col-md-6">
-            <input id="firstName" type="text" class="form-control" value="@Model.FirstName" />
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>Last Name:</label>
+            </div>
+            <div class="col-md-6">
+                <input id="lastName" type="text" class="form-control" value="@Model.LastName" />
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <label>Last Name:</label>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>Gender:</label>
+            </div>
+            <div class="col-md-6">
+                <input id="gender" type="text" class="form-control" value="@Model.Gender" />
+            </div>
         </div>
-        <div class="col-md-6">
-            <input id="lastName" type="text" class="form-control" value="@Model.LastName"/>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>Email:</label>
+            </div>
+            <div class="col-md-6">
+                <input id="email" type="text" class="form-control" value="@Model.Email" />
+            </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <label>Gender:</label>
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>Phone Number:</label>
+            </div>
+            <div class="col-md-6">
+                <input id="phoneNumber" type="text" class="form-control" value="@Model.PhoneNumber" />
+            </div>
         </div>
-        <div class="col-md-6">
-            <input id="gender" type="text" class="form-control" value="@Model.Gender"/>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <label>Email:</label>
-        </div>
-        <div class="col-md-6">
-            <input id="email" type="text" class="form-control" value="@Model.Email" />
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-6">
-            <label>Phone Number:</label>
-        </div>
-        <div class="col-md-6">
-            <input id="phoneNumber" type="text" class="form-control" value="@Model.PhoneNumber"/>
-        </div>
-    </div>
 
-    <div class="col-md-12">
-        <button class="btn" onclick="updatePerson()">Save</button>
-    </div>
+        <div class="col-md-12">
+            <button class="btn" onclick="updatePerson()">Save</button>
+        </div>
     </PersonViewModel>
 </body>
 

@@ -18,47 +18,42 @@ namespace gTarrGames.Web.Controllers
 
         public async Task<ActionResult> Update()
         {
-            var sesEmail = (string) Session["LoginEmail"];
-            
-            var personViewModel = await _personOrchestrator.SearchPerson(sesEmail);
-        
-            return View(personViewModel);
-        }
+            var sesId = (string)Session["LoginId"];
 
-        //Currently Unused
-        public async void CreatePerson(CreatePersonModel person)
-        {
-             await _personOrchestrator.CreatePerson(new PersonViewModel
+            var tempViewModel = new PersonViewModel
             {
-                PersonId = Guid.NewGuid(),
-                Email = person.Email
-            });
+                PersonId = new Guid(sesId),
+                FirstName = null,
+                LastName = null,
+                Gender = null,
+                Email = null,
+                PhoneNumber = null
+            };
 
+            var personViewModel = await _personOrchestrator.SearchPersonId(tempViewModel);
+
+            return View(personViewModel);
         }
 
         public async Task<JsonResult> UpdatePerson(UpdatePersonModel person)
         {
+            var sesId = (string)Session["LoginId"];
+
             if (person.PersonId == Guid.Empty)
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             var result = await _personOrchestrator.UpdatePerson(new PersonViewModel
             {
-                PersonId = person.PersonId,
+                PersonId = new Guid(sesId),
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 Gender = person.Gender,
-                Email = (string) Session["LoginEmail"],
+                Email = person.Email,
                 PhoneNumber = person.PhoneNumber
             });
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        //For search Function - currently unused
-        public async void Search(string searchString)
-        {
-            var viewModel = await _personOrchestrator.SearchPersonAsync(searchString);
-
-        }
     }
 }
