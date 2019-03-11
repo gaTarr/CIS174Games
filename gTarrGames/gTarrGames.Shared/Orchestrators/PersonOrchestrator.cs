@@ -50,58 +50,29 @@ namespace gTarrGames.Shared.Orchestrators
             return persons;
         }
 
-        //To be called on page load
-        public async Task<PersonViewModel> SearchPerson(string searchString)
+        public async Task<PersonViewModel> SearchPersonId(PersonViewModel person)
         {
-            var person = await _gamesContext.Persons.Where(x => x.Email.StartsWith(searchString)).FirstOrDefaultAsync();
 
-            if (person == null)
-            {
-                return new PersonViewModel();
-            }
+            var personEntity = await _gamesContext.Persons.FindAsync(person.PersonId);
+
 
             var viewModel = new PersonViewModel
             {
-                PersonId = person.PersonId,
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                Gender = person.Gender,
-                Email = person.Email,
-                PhoneNumber = person.PhoneNumber
+                PersonId = personEntity.PersonId,
+                FirstName = personEntity.FirstName,
+                LastName = personEntity.LastName,
+                Gender = personEntity.Gender,
+                Email = personEntity.Email,
+                PhoneNumber = personEntity.PhoneNumber
             };
 
             return viewModel;
         }
 
-
-        //Search for Person by Email - currently unused
-        public async Task<PersonViewModel> SearchPersonAsync(string searchString)
-        {
-            var person = await _gamesContext.Persons.Where(x => x.Email.StartsWith(searchString)).FirstOrDefaultAsync();
-
-            if (person == null)
-            {
-                return new PersonViewModel();
-            }
-
-            var viewModel = new PersonViewModel()
-            {
-                PersonId = person.PersonId,
-                FirstName = person.FirstName,
-                LastName = person.LastName,
-                Gender = person.Gender,
-                Email = person.Email,
-                PhoneNumber = person.PhoneNumber
-            };
-
-            return viewModel;
-        }
-
-        //Search person by email, then update db
+        //Search person by Id, then update db
         public async Task<bool> UpdatePerson(PersonViewModel person)
-        {
-            //var updateEntity = await _gamesContext.Persons.FindAsync(person.PersonId);  --to remove
-            var updateEntity = await _gamesContext.Persons.Where(x => x.Email.StartsWith(person.Email.ToString())).FirstOrDefaultAsync();
+        {            
+            var updateEntity = await _gamesContext.Persons.FindAsync(person.PersonId);
 
             if (updateEntity == null)
             {

@@ -82,8 +82,10 @@ namespace gTarrGames.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    //Store email in Session
-                    Session["LoginEmail"] = model.Email;
+                    //Store Login User Id in Session
+                    var userId = await UserManager.FindByEmailAsync(model.Email);
+                    Session["LoginId"] = userId.Id;
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -165,11 +167,21 @@ namespace gTarrGames.Web.Controllers
                     //At this point create Person Object
                     await _personOrchestrator.CreatePerson(new PersonViewModel
                     {
-                        PersonId = Guid.NewGuid(),
+                        PersonId = new Guid(user.Id),
                         Email = model.Email
                     });
-                    //and Store email in sesson
-                    Session["LoginEmail"] = model.Email;
+                    //..and store Id in session
+                    Session["LoginId"] = user.Id;
+
+                    //Trying to store login User ID, and create person object with it...1702hrs
+                    //await _personOrchestrator.CreatePerson(new PersonViewModel
+                    //{
+                    //    PersonId = Guid.NewGuid(),
+                    //    Email = model.Email
+                    //});
+                    ////and Store email in sesson
+                    //Session["LoginEmail"] = model.Email;
+
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
