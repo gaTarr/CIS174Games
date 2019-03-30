@@ -1,11 +1,12 @@
 ﻿using gTarrGames.Domain;
+using gTarrGames.Shared.Orchestrators.Interfaces;
 using gTarrGames.Shared.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace gTarrGames.Shared.Orchestrators
 {
-    public class HighScoreOrchestrator
+    public class HighScoreOrchestrator : IHighScoreOrchestrator
     {
         private readonly GamesContext _gamesContext;
 
