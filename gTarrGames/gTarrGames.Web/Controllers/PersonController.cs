@@ -1,4 +1,5 @@
 ﻿using gTarrGames.Shared.Orchestrators;
+using gTarrGames.Shared.Orchestrators.Interfaces;
 using gTarrGames.Shared.ViewModels;
 using gTarrGames.Web.Models;
 using System;
@@ -9,7 +10,13 @@ namespace gTarrGames.Web.Controllers
 {
     public class PersonController : Controller
     {
-        private PersonOrchestrator _personOrchestrator = new PersonOrchestrator();
+        private readonly IPersonOrchestrator _personOrchestrator;
+
+        public PersonController(IPersonOrchestrator personOrchestrator)
+        {
+            _personOrchestrator = personOrchestrator;
+        }
+
         // GET: Person
         public ActionResult Index()
         {

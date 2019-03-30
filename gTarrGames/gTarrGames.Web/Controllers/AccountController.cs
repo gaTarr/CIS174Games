@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using gTarrGames.Web.Models;
 using gTarrGames.Shared.Orchestrators;
 using gTarrGames.Shared.ViewModels;
+using gTarrGames.Shared.Orchestrators.Interfaces;
 
 namespace gTarrGames.Web.Controllers
 {
@@ -19,10 +20,15 @@ namespace gTarrGames.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private PersonOrchestrator _personOrchestrator = new PersonOrchestrator();
+        private readonly IPersonOrchestrator _personOrchestrator;
 
         public AccountController()
         {
+        }
+
+        public AccountController(IPersonOrchestrator personOrchestrator)
+        {
+            _personOrchestrator = personOrchestrator;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -172,15 +178,6 @@ namespace gTarrGames.Web.Controllers
                     });
                     //..and store Id in session
                     Session["LoginId"] = user.Id;
-
-                    //Trying to store login User ID, and create person object with it...1702hrs
-                    //await _personOrchestrator.CreatePerson(new PersonViewModel
-                    //{
-                    //    PersonId = Guid.NewGuid(),
-                    //    Email = model.Email
-                    //});
-                    ////and Store email in sesson
-                    //Session["LoginEmail"] = model.Email;
 
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
