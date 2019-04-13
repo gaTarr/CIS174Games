@@ -16,7 +16,6 @@ namespace gTarrGames.Web.Controllers
         // GET: HighScores
         public ActionResult Index()
         {
-            //var highScoreOrchestrator = new HighScoreOrchestrator();
 
             var highScoresModel = new HighScoresModel
             {

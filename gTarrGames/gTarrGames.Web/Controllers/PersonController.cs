@@ -34,7 +34,8 @@ namespace gTarrGames.Web.Controllers
                 LastName = null,
                 Gender = null,
                 Email = null,
-                PhoneNumber = null
+                PhoneNumber = null,
+                HighScore = null
             };
 
             var personViewModel = await _personOrchestrator.SearchPersonId(tempViewModel);

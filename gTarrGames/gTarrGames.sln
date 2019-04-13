@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Domain", "gTarrG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Shared", "gTarrGames.Shared\gTarrGames.Shared.csproj", "{D36B8538-A6DA-433F-84D5-162D331E29C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gTarrGames.Test", "gTarrGames.Test\gTarrGames.Test.csproj", "{014D2903-9430-4D80-A4E5-D9D816FAA79C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D36B8538-A6DA-433F-84D5-162D331E29C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014D2903-9430-4D80-A4E5-D9D816FAA79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014D2903-9430-4D80-A4E5-D9D816FAA79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014D2903-9430-4D80-A4E5-D9D816FAA79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014D2903-9430-4D80-A4E5-D9D816FAA79C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

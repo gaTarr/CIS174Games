@@ -7,6 +7,8 @@ namespace gTarrGames.Web.App_Start
     using System.Web;
     using gTarrGames.Shared.Orchestrators;
     using gTarrGames.Shared.Orchestrators.Interfaces;
+    using gTarrGames.Shared.Services;
+    using gTarrGames.Shared.Services.Interfaces;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -64,6 +66,8 @@ namespace gTarrGames.Web.App_Start
         {
             kernel.Bind<IPersonOrchestrator>().To<PersonOrchestrator>();
             kernel.Bind<IHighScoreOrchestrator>().To<HighScoreOrchestrator>();
+            kernel.Bind<IYourHighScoreService>().To<YourHighScoreService>();
+            kernel.Bind<IHighScoreService>().To<HighScoreService>();
         }        
     }
 }

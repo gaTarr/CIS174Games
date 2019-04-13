@@ -80,6 +80,9 @@
     <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -299,6 +302,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\gTarrGames.Domain\gTarrGames.Domain.csproj">
+      <Project>{015B0C38-7D70-4919-B73D-60424E0CBD4D}</Project>
+      <Name>gTarrGames.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\gTarrGames.Shared\gTarrGames.Shared.csproj">
       <Project>{d36b8538-a6da-433f-84d5-162d331e29c7}</Project>
       <Name>gTarrGames.Shared</Name>
