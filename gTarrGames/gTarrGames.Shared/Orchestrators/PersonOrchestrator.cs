@@ -25,6 +25,10 @@ namespace gTarrGames.Shared.Orchestrators
             _highScoreOrchestrator = highScoreOrchestrator;
         }
 
+        public PersonOrchestrator()
+        {
+        }
+
         public async Task<int> CreatePerson(PersonViewModel person)
         {
             _gamesContext.Persons.Add(new Person
@@ -55,6 +59,26 @@ namespace gTarrGames.Shared.Orchestrators
             }).ToList();
 
             return persons;
+        }
+
+        //Created 4/19
+        public PersonViewModel SearchPersonEmail(string email)
+        {
+           var personEntity = _gamesContext.Persons.Where(x => x.Email.StartsWith(email)).FirstOrDefault();
+
+            var personViewModel = new PersonViewModel
+            {
+                PersonId = personEntity.PersonId,
+                FirstName = personEntity.FirstName,
+                LastName = personEntity.LastName,
+                Gender = personEntity.Gender,
+                Email = personEntity.Email,
+                PhoneNumber = personEntity.PhoneNumber,
+                HighScore = personEntity.HighScore
+            };
+
+            return personViewModel;
+
         }
 
         public async Task<PersonViewModel> SearchPersonId(PersonViewModel person)
@@ -164,7 +188,7 @@ namespace gTarrGames.Shared.Orchestrators
 
         //}
         //Duplicated 4/12 to work with async CreateHighScore
-        public async Task<PersonViewModel> SetNewHighScore(string email, decimal score)
+        public async Task<PersonViewModel> SetNewHighScoreAsync(string email, decimal score)
         {
             var personEntity = await _gamesContext.Persons.Where(x => x.Email.StartsWith(email)).FirstOrDefaultAsync();
             var highScoreViewModel = _highScoreOrchestrator.CreateHighScore(personEntity.PersonId, score);
@@ -192,7 +216,7 @@ namespace gTarrGames.Shared.Orchestrators
             }
             else //If not, update person to new high score
             {
-                await UpdatePerson(new PersonViewModel
+                await UpdatePersonAsync(new PersonViewModel
                 {
                     PersonId = personEntity.PersonId,
                     FirstName = personEntity.FirstName,
@@ -208,9 +232,60 @@ namespace gTarrGames.Shared.Orchestrators
             }
 
         }
+        //Non Threaded version 4/19 - just for Unit testing
+        public PersonViewModel SetNewHighScore(PersonViewModel person, decimal score)
+        {
+            var highScore = new HighScore
+            {
+                HighScoreId = Guid.NewGuid(),
+                PersonId = person.PersonId,
+                Score = score,
+                DateAttained = DateTime.Now
+            };
 
-        //Search person by Id, then update db
-        public async Task<bool> UpdatePerson(PersonViewModel person)
+            if (score >= person.HighScore.Score)
+            {
+                return new PersonViewModel
+                {
+                    PersonId = person.PersonId,
+                    FirstName = person.FirstName,
+                    LastName = person.LastName,
+                    Email = person.Email,
+                    PhoneNumber = person.PhoneNumber,
+                    HighScore = highScore
+                };
+            }
+            else
+            {
+                return person;
+            }
+        }
+
+        public bool UpdatePerson(PersonViewModel person)
+        {
+            var updateEntity = _gamesContext.Persons.Find(person.PersonId);
+
+            if (updateEntity == null)
+            {
+                return false;
+            }
+            else
+            {
+                updateEntity.FirstName = person.FirstName;
+                updateEntity.LastName = person.LastName;
+                updateEntity.Gender = person.Gender;
+                updateEntity.Email = person.Email;
+                updateEntity.PhoneNumber = person.PhoneNumber;
+                updateEntity.HighScore = person.HighScore;
+
+                _gamesContext.SaveChanges();
+            }
+
+            return true;
+        }
+
+        //Search person by Id, then update db. Changed name to UpdatePersonAsync 4/19
+        public async Task<bool> UpdatePersonAsync(PersonViewModel person)
         {            
             var updateEntity = await _gamesContext.Persons.FindAsync(person.PersonId);
 

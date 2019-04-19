@@ -15,12 +15,12 @@ namespace gTarrGames.Web.Api
     public class PersonApiController : ApiController
     {
         private readonly IPersonOrchestrator _personOrchestrator;
-        //private readonly HighScoreOrchestrator _highScoreOrchestrator;
+        private readonly IHighScoreOrchestrator _highScoreOrchestrator;
 
-        public PersonApiController(IPersonOrchestrator personOrchestrator)
+        public PersonApiController(IPersonOrchestrator personOrchestrator, IHighScoreOrchestrator highScoreOrchestrator)
         {
             _personOrchestrator = personOrchestrator;
-            //_highScoreOrchestrator = new HighScoreOrchestrator();
+            _highScoreOrchestrator = highScoreOrchestrator;
         }
 
         [HttpGet]
@@ -35,12 +35,8 @@ namespace gTarrGames.Web.Api
         [HttpPost]
         public Task<PersonViewModel> NewHighScore(string email, decimal score)
         {
-            var person = _personOrchestrator.SetNewHighScore(email, score);
-
-            return person;
-
+            
+            return _personOrchestrator.SetNewHighScoreAsync(email, score);
         }
-
-
     }
 }

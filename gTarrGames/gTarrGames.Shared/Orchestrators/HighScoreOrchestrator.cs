@@ -65,9 +65,6 @@ namespace gTarrGames.Shared.Orchestrators
                 DateAttained = x.DateAttained
             }).OrderByDescending(x => x.Score).ToList();
 
-            //created for testing 4/13 - to remove 4/13
-            //var newHighScore = CreateHighScore(new Guid("af5c8820-d2f2-4067-a09f-4ad3587bdb23"), 1);
-
             return highScores;
         }
 
@@ -99,7 +96,7 @@ namespace gTarrGames.Shared.Orchestrators
 
             return viewModel;
         }
-        //Created 4/12/19 for GetHighScoresTest
+        //Created 4/12/19 for GetHighScoresTest ** will be used in real application
         public List<HighScoreViewModel> GetAllScoresPersonId(PersonViewModel person)
         {
             var highScores = _gamesContext.HighScores
