@@ -34,7 +34,8 @@ namespace gTarrGames.Web.Controllers
                 LastName = null,
                 Gender = null,
                 Email = null,
-                PhoneNumber = null
+                PhoneNumber = null,
+                HighScore = null
             };
 
             var personViewModel = await _personOrchestrator.SearchPersonId(tempViewModel);
@@ -49,7 +50,7 @@ namespace gTarrGames.Web.Controllers
             if (person.PersonId == Guid.Empty)
                 return Json(false, JsonRequestBehavior.AllowGet);
 
-            var result = await _personOrchestrator.UpdatePerson(new PersonViewModel
+            var result = await _personOrchestrator.UpdatePersonAsync(new PersonViewModel
             {
                 PersonId = new Guid(sesId),
                 FirstName = person.FirstName,
