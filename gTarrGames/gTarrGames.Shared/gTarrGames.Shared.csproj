@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\GenderEnum.cs" />
+    <Compile Include="Orchestrators\ErrorLogOrchestrator.cs" />
     <Compile Include="Orchestrators\HighScoreOrchestrator.cs" />
+    <Compile Include="Orchestrators\Interfaces\IErrorLogOrchestrator.cs" />
     <Compile Include="Orchestrators\Interfaces\IHighScoreOrchestrator.cs" />
     <Compile Include="Orchestrators\Interfaces\IPersonOrchestrator.cs" />
     <Compile Include="Orchestrators\PersonOrchestrator.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Services\Interfaces\IHighScoreService.cs" />
     <Compile Include="Services\Interfaces\IYourHighScoreService.cs" />
     <Compile Include="Services\YourHighScoreService.cs" />
+    <Compile Include="ViewModels\ErrorLogViewModel.cs" />
     <Compile Include="ViewModels\HighScoreViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModel.cs" />
     <Compile Include="ViewModels\ProjectMembersViewModel.cs" />

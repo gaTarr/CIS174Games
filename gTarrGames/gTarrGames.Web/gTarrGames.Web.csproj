@@ -196,6 +196,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ErrorLogApiController.cs" />
     <Compile Include="Api\HighScoreApiController.cs" />
     <Compile Include="Api\PersonApiController.cs" />
     <Compile Include="Api\ProjectMemberApiController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HighScoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -292,9 +294,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\HighScores\Index.cshtml" />
     <Content Include="Views\Person\Update.cshtml" />
+    <Content Include="Views\Home\ErrorGenerator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
