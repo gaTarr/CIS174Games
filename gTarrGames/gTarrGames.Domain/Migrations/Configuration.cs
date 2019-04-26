@@ -63,6 +63,23 @@ namespace gTarrGames.Domain.Migrations
                 Score = 96,
                 DateAttained = new DateTime(2019, 02, 10)
             });
+
+            context.ErrorLogs.AddOrUpdate(new ErrorLog
+            {
+                ErrorId = Guid.Parse("9f3dbe67-a8c8-485d-a2db-97586a118b3b"),
+                ErrorDateTime = new DateTime(2019, 04, 24),
+                ErrorMessage = "TestError Message",
+                StackTrace = "TestStack Trace",
+                InnerExceptions = "Test Inner Exception"
+            });
+            context.ErrorLogs.AddOrUpdate(new ErrorLog
+            {
+                ErrorId = Guid.Parse("6214d1da-bbad-473c-8a33-3d94a247fbbe"),
+                ErrorDateTime = new DateTime(2019, 04, 24),
+                ErrorMessage = "TestError Message 1",
+                StackTrace = "TestStack Trace 1",
+                InnerExceptions = "Test Inner Exception1"
+            });
         }
     }
 }

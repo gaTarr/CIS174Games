@@ -7,5 +7,6 @@ namespace gTarrGames.Domain
     {
         public DbSet<Person> Persons { get; set; }
         public DbSet<HighScore> HighScores { get; set; }
+        public DbSet<ErrorLog> ErrorLogs { get; set; }
     }
 }
