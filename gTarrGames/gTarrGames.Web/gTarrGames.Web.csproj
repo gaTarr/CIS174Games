@@ -196,6 +196,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\CatGameApiController.cs" />
     <Compile Include="Api\ErrorLogApiController.cs" />
     <Compile Include="Api\HighScoreApiController.cs" />
     <Compile Include="Api\PersonApiController.cs" />

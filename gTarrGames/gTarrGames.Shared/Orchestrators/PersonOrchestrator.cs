@@ -27,6 +27,7 @@ namespace gTarrGames.Shared.Orchestrators
 
         public PersonOrchestrator()
         {
+            _gamesContext = new GamesContext();
         }
 
         public async Task<int> CreatePerson(PersonViewModel person)
