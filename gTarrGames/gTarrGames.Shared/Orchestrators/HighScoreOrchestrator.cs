@@ -19,19 +19,19 @@ namespace gTarrGames.Shared.Orchestrators
         }
 
         //Currently unused - 4/13
-        public async Task<int> CreateHighScore(PersonViewModel person, decimal score)
-        {
-            _gamesContext.HighScores.Add(new HighScore
-            {
-                HighScoreId = Guid.NewGuid(),
-                PersonId = person.PersonId,
-                Score = score,
-                DateAttained = DateTime.Now
-            });
+        //public async Task<int> CreateHighScore(PersonViewModel person, decimal score)
+        //{
+        //    _gamesContext.HighScores.Add(new HighScore
+        //    {
+        //        HighScoreId = Guid.NewGuid(),
+        //        PersonId = person.PersonId,
+        //        Score = score,
+        //        DateAttained = DateTime.Now
+        //    });
 
-            return await _gamesContext.SaveChangesAsync();
+        //    return await _gamesContext.SaveChangesAsync();
 
-        }
+        //}
 
         public HighScoreViewModel CreateHighScore(Guid personID, decimal score)
         {
@@ -39,6 +39,28 @@ namespace gTarrGames.Shared.Orchestrators
             {
                 HighScoreId = Guid.NewGuid(),
                 PersonId = personID,
+                Score = score,
+                DateAttained = DateTime.Now
+            };
+
+            _gamesContext.HighScores.Add(new HighScore
+            {
+                HighScoreId = highScoreViewModel.HighScoreId,
+                PersonId = highScoreViewModel.PersonId,
+                Score = highScoreViewModel.Score,
+                DateAttained = highScoreViewModel.DateAttained
+            });
+            _gamesContext.SaveChanges();
+
+            return highScoreViewModel;
+        }
+
+        public HighScoreViewModel CreateHighScore(PersonViewModel person, decimal score)
+        {
+            var highScoreViewModel = new HighScoreViewModel
+            {
+                HighScoreId = Guid.NewGuid(),
+                PersonId = person.PersonId,
                 Score = score,
                 DateAttained = DateTime.Now
             };
@@ -63,7 +85,9 @@ namespace gTarrGames.Shared.Orchestrators
                 PersonId = x.PersonId,
                 Score = x.Score,
                 DateAttained = x.DateAttained
-            }).OrderByDescending(x => x.Score).ToList();
+            }).OrderByDescending(x => x.Score)
+            .Take(10)
+            .ToList();
 
             return highScores;
         }
@@ -109,6 +133,7 @@ namespace gTarrGames.Shared.Orchestrators
                                                     })
                                             .Where(x => x.PersonId == person.PersonId)
                                             .OrderByDescending(x => x.Score)
+                                            .Take(10)                                       //added 4/27
                                             .ToList();
 
             return highScores;
@@ -143,5 +168,6 @@ namespace gTarrGames.Shared.Orchestrators
                 DateAttained = DateTime.Now
             };
         }
+
     }
 }

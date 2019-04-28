@@ -7,13 +7,12 @@ using System.Web.Http;
 
 namespace gTarrGames.Web.Api
 {
-    //[Route("api/v1/highScores")]
+    
     public class HighScoreApiController : ApiController
     {
         private readonly HighScoreOrchestrator _highScoreOrchestrator = new HighScoreOrchestrator();
 
 
-        //[HttpGet]
         [Route("api/v1/highScores")]
         public List<HighScoreViewModel> GetAllHighScores()
         {

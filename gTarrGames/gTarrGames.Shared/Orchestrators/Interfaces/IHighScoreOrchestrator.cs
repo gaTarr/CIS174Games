@@ -10,8 +10,9 @@ namespace gTarrGames.Shared.Orchestrators.Interfaces
     {
         List<HighScoreViewModel> GetAllHighScores();
         List<HighScoreViewModel> GetAllScoresPersonId(PersonViewModel person);
-        Task<int> CreateHighScore(PersonViewModel person, decimal score);
+        //Task<int> CreateHighScore(PersonViewModel person, decimal score);
         HighScoreViewModel CreateHighScore(Guid personID, decimal score);
+        HighScoreViewModel CreateHighScore(PersonViewModel person, decimal score);
         HighScoreViewModel GetHighScorePersonId(PersonViewModel person);
         HighScoreViewModel GetHighScorePersonId(string personId);
         HighScore GetHighScoreId(Guid personId);

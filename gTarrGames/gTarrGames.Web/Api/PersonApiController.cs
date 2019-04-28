@@ -11,20 +11,24 @@ using System.Web.Http;
 
 namespace gTarrGames.Web.Api
 {
-    [Route("api/v1/persons")]
+    
     public class PersonApiController : ApiController
     {
-        private readonly IPersonOrchestrator _personOrchestrator;
-        private readonly IHighScoreOrchestrator _highScoreOrchestrator;
+        private readonly PersonOrchestrator _personOrchestrator = new PersonOrchestrator();
+        private readonly HighScoreOrchestrator _highScoreOrchestrator = new HighScoreOrchestrator();
 
-        public PersonApiController(IPersonOrchestrator personOrchestrator, IHighScoreOrchestrator highScoreOrchestrator)
-        {
-            _personOrchestrator = personOrchestrator;
-            _highScoreOrchestrator = highScoreOrchestrator;
-        }
+        //Still need to diagnose issue with injection here.  Recent but prevents injection 4/27/19
+        //private readonly IPersonOrchestrator _personOrchestrator;
+        //private readonly IHighScoreOrchestrator _highScoreOrchestrator;
 
-        [HttpGet]
-        //[Route("api/v1/persons")]
+        //public PersonApiController(IPersonOrchestrator personOrchestrator, IHighScoreOrchestrator highScoreOrchestrator)
+        //{
+        //    _personOrchestrator = personOrchestrator;
+        //    _highScoreOrchestrator = highScoreOrchestrator;
+        //}
+
+
+        [Route("api/v1/persons")]
         public List<PersonViewModel> GetAllPersons()
         {
             var persons = _personOrchestrator.GetAllPersons();
@@ -32,7 +36,7 @@ namespace gTarrGames.Web.Api
             return persons;
         }
 
-        [HttpPost]
+        [Route("api/v1/personSetScore")]
         public Task<PersonViewModel> NewHighScore(string email, decimal score)
         {
             
